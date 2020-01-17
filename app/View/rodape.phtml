@@ -1,0 +1,23 @@
+<div class="align-bottom">
+    <footer class="bg-dark align-bottom" style="height:7vh;" data-dir="<?= SITE_URL ?>">
+        <footer>
+</div>
+
+
+<script src="<?= DIR_JQUERY . 'jquery.js' ?>"></script>
+<script src="<?= DIR_BOOTSTRAP_CSS . '/bootstrap.min.js' ?>"></script>
+<script src="<?= DIRJS ?>global.js"></script>
+<script src="<?= DIRJS ?>/AlertPlugin/jquery-confirm.js"></script>
+
+<?php
+if ($_SERVER['pagina'] === 'login') { ?>
+    <script src="<?= DIRJS ?>Usuario/login.js"></script>
+    <script src="<?= DIRJS ?>Usuario/cadastro.js"></script>
+    <script src="<?= DIRJS ?>Usuario/recuperarSenha.js"></script>
+<?php } ?>
+
+</div>
+</body>
+
+</html>
+<!-- FECHAMENTO DAS TAGS -->
