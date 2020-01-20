@@ -10,7 +10,6 @@ class Login extends Sql
     public function __construct()
     {
         parent::__construct();
-        // $this->validateLogin();
     }
     public function login()
     {
@@ -20,10 +19,14 @@ class Login extends Sql
 
     public function validateLogin()
     {
-        $valida = $this->command("SELECT * FROM dados_usu WHERE emailusuario = :EMAIL AND senhausuario = :PASSWORD", [
-            ':EMAIL' => $_POST['email'],
-            ':PASSWORD' => $_POST['pass']
-        ]);
+        $valida = $this->command(
+            "SELECT * FROM dados_usu WHERE emailusuario = :EMAIL AND senhausuario = :PASSWORD",
+            [
+                ':EMAIL' => $_POST['email'],
+                ':PASSWORD' => $_POST['pass']
+            ]
+        );
+
         if (count($valida)) {
             $response = [
                 'erro' => false,

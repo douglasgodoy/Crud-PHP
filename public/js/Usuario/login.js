@@ -2,11 +2,11 @@ $('#login').on('click', (e) => {
     e.preventDefault();
     const email = $('input[name="email"]').val();
     const senha = $('input[name="password"]').val();
-    let login = '/Login/validateLogin';
-
+    const login = '/Login/validateLogin';
     const url = Diretorio() + login;
-    let form = $('form').serializeArray();
     const gen = $('#sexo');
+    let form = $('form').serializeArray();
+
 
     if (validaFormVazio(form, gen)) {
         $.ajax({
@@ -21,7 +21,6 @@ $('#login').on('click', (e) => {
                 $('.spinner').removeClass('d-none');
             }
         }).done(function (data) {
-            console.log(data);
 
             $('.spinner').addClass('d-none');
             if (!data.erro) {

@@ -13,7 +13,7 @@ CREATE TABLE `dados_usu` (
 UPDATE dados_usu SET dtNascimento = '1998-10-02' WHERE idusuario = 1;
 
 
-#DELETE FROM dados_usu WHERE emailusuario ='emailteste@hotmail.com';
+DELETE FROM dados_usu WHERE github ='douglasgodoy1998';
 
 
 SELECT * FROM dados_usu;

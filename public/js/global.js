@@ -2,12 +2,13 @@ function Diretorio() {
     return $('footer').data("dir");
 }
 
-function dispararAlerta(titulo = '..', conteudo = '..', cor = 'dark') {
+function dispararAlerta(titulo = '..', conteudo = '..', cor = 'dark', column = 'small') {
     $.confirm({
         title: titulo,
         content: conteudo,
         type: cor,
         typeAnimated: true,
+        columnClass: column,
         backgroundDismiss: true,
         draggable: true,
         buttons: {
@@ -46,7 +47,6 @@ function validaFormVazio(form, select) {
                     .addClass('is-valid') :
                 input.addClass('is-valid');
         }
-
     });
     return erros > 0 ? false : true;
 }
