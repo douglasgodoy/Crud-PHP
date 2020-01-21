@@ -25,6 +25,7 @@ $('#login').on('click', (e) => {
             $('.spinner').addClass('d-none');
             if (!data.erro) {
                 dispararAlerta("Boa!", 'Login Validado com Sucesso!', 'green');
+                setTimeout(() => { window.location = 'home/index'; }, 1500);
             } else {
                 dispararAlerta(`Ops.. ${data.message}`, 'Seu Email ou Senha estão inválidos!', 'red');
             }
@@ -33,5 +34,50 @@ $('#login').on('click', (e) => {
             console.log(error);
         });
     };
+    $('form *').hasClass('is-invalid') ?
+        $('.dadosInc').removeClass('d-none') :
+        $('.dadosInc').addClass('d-none');
 });
 
+const btnCad = $('#btnCadastrar');
+$('#novoCadastro').on('click', function () {
+    const divCad = $('#cadastrar');
+
+    divCad.fadeToggle('fast', () => {
+
+        if (divCad.attr('style') !== "") {
+
+            $('#login').removeClass('d-none');
+            btnCad.addClass('d-none');
+
+            $('form input, form select')
+                .not($(`input[name="email"],
+                         input[name="password"]`))
+                .attr('required', false);
+
+            divCad.removeClass('active');
+            $('#titulo span').html('login');
+        } else {
+
+            $('#login').addClass('d-none');
+            btnCad.removeClass('d-none');
+
+            $('form input, form select')
+                .not($(`input[name="email"],
+                         input[name="password"],
+                          input[name="githubUsername"]`))
+                .attr('required', true);
+
+
+            $('#titulo span').html('cadastro');
+            divCad.addClass('active');
+        }
+
+        $('form *').not($(`input[name="email"],
+                            input[name="password"],
+                             option`)).val('');
+
+        $('form *').not($('input[name="email"]'))
+            .removeClass('is-valid is-invalid');
+    });
+});

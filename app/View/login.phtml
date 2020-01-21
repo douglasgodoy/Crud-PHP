@@ -1,5 +1,5 @@
-<div class="container my-4">
-    <div class="col-5 mx-auto">
+<div class="container">
+    <div class="col-5 mx-auto py-5">
         <p id="titulo">Faça o <span>login</span> para continuar!</p>
         <form class="needs-validation">
             <div class="form-group">
@@ -15,6 +15,7 @@
                     <div class="password text-secondary">
                         <label for="senhaConf">Confirme sua Senha</label>
                         <input id="senhaConf" name="senhaConf" type="password" placeholder="Digite sua senha aqui" class="form-control" autocomplete="off">
+                        <span class="text-danger font-size-13 d-none font-weight-bold">*As senhas devem ser iguais!</span>
                     </div>
                     <div class="d-flex justify-content-between my-3 text-secondary">
                         <div class="idade col pr-2 pl-0">
@@ -48,6 +49,7 @@
                     </div>
                 </button>
                 <span id="esqueceuSenha" class="font-size-13 mx-2 tagA">Esqueceu a senha?</span>
+                <div class="font-size-13 text-danger font-weight-bold my-1 d-none dadosInc">*Existem Dados que não foram preenchidos!</div>
             </div>
         </form>
         <div>

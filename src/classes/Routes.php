@@ -12,7 +12,6 @@ class Routes
     public function __construct()
     {
         $this->url = explode('/', rtrim($_GET['url']), FILTER_SANITIZE_URL);
-
         $this->controlador = isset($this->url[0]) && $this->url[0] ? $this->url[0] : 'login';
         $this->metodo = isset($this->url[1]) && $this->url[1] ? $this->url[1] : 'login';
         $this->args = isset($this->url[2]) && $this->url[2] ? $this->url[2] : [];
@@ -25,8 +24,8 @@ class Routes
             "" => "login",
             "login" => "login",
             "home" => "index",
+            "index" => "index"
         ];
-
         array_key_exists($nameRoute, $this->rota) &&
             file_exists('../app/View/' . $this->rota[$nameRoute] . '.phtml') ?
             $view = "../app/View/{$this->rota[$nameRoute]}.phtml" :
@@ -48,13 +47,13 @@ class Routes
 
     public function req() // Função para fazer requisições, tanto ajax quanto POST
     {
-        $this->controlador = 'Controller\\' . \ucfirst($this->controlador);
-        if (!class_exists($this->controlador)) {
+        $this->controller = 'Controller\\' . \ucfirst($this->controlador);
+        if (!class_exists($this->controller)) {
             $this->getView();
             exit();
         }
-        if (method_exists($this->controlador, $this->metodo)) {
-            $response = call_user_func_array([new $this->controlador(), $this->metodo], [$this->args]);
+        if (method_exists($this->controller, $this->metodo)) {
+            $response = call_user_func_array([new $this->controller(), $this->metodo], [$this->args]);
             print $response;
         };
     }

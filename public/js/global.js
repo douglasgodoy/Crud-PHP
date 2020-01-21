@@ -4,6 +4,8 @@ function Diretorio() {
 
 function dispararAlerta(titulo = '..', conteudo = '..', cor = 'dark', column = 'small') {
     $.confirm({
+        // animation: 'scaleY',
+        // closeAnimation: 'zoom',
         title: titulo,
         content: conteudo,
         type: cor,
@@ -16,7 +18,7 @@ function dispararAlerta(titulo = '..', conteudo = '..', cor = 'dark', column = '
                 text: 'Fechar',
                 btnClass: 'btn-' + cor,
             },
-        }
+        },
     });
 }
 

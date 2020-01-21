@@ -1,4 +1,5 @@
 html * {
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Baskervville', serif;
     font-family: 'Inconsolata', monospace;
@@ -30,7 +31,7 @@ html {
 }
 
 .corpo {
-    min-height: 76vh;
+    min-height: 78vh;
 }
 
 .font-size-13 {
@@ -75,4 +76,8 @@ html {
 
 .border-radius-50 {
     border-radius: 50px;
+}
+
+#sair {
+    height: 2.2rem;
 }
