@@ -1,0 +1,34 @@
+    <div class="container col-5  py-3 my-3 ">
+        <div class="d-flex p-2 justify-content-between align-items-center bg-header border-top border-right border-left border-dark border-radius-top-30">
+            <a href="/crud/home/index"><i class="text-dark fas fa-chevron-circle-left font-size-25 pointer"></i></a>
+            <h1 id="meuProjeto" class="text-dark text-truncate" style="max-width: 23rem">Meu projeto!</h1>
+            <div></div>
+        </div>
+        <div class="container bg-dark-crud py-4 border-bottom border-verde rounded-bottom">
+            <form method="POST">
+                <div class="form-group text-white">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Coloque o Titulo do seu Projeto aqui!" autocomplete="off" required>
+                </div>
+                <div class="form-group text-white">
+                    <label for="techs">Tecnologias</label>
+                    <input type="text" class="form-control" name="techs" id="techs" placeholder="Quais tecnologias foram usadas ?" autocomplete="off" required>
+                </div>
+                <div class="form-group text-white">
+                    <label for="descricao">Descrição do Projeto</label>
+                    <textarea class="form-control" name="descricao" placeholder="Conte-me os detalhes!" id="descricao" rows="3" autocomplete="off" required></textarea>
+                </div>
+                <div class="form-group my-3 text-white">
+                    <label for="print">Mostre o Resultado até o momento!</label>
+                    <input type="file" class="form-control-file border-radius-15 bg-header" name="print" id="print" placeholder="Mostre mais!" aria-describedby="fileHelpId">
+                </div>
+                <button id="btnCadastrarProjeto" class="btn bg-header text-white">Cadastrar</button>
+                <button id="btnEditarProjeto" class="btn bg-header text-white d-none">Editar</button>
+                <div class="font-size-13 text-white font-weight-bold my-1 d-none dadosInc">*Existem Dados que não foram preenchidos!</div>
+
+            </form>
+        </div>
+    </div>
+    <!-- FECHAMENTO TAG CORPO -->
+    </div>
+    <!-- FECHAMENTO TAG CORPO -->

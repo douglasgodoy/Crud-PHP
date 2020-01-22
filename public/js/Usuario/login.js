@@ -2,13 +2,11 @@ $('#login').on('click', (e) => {
     e.preventDefault();
     const email = $('input[name="email"]').val();
     const senha = $('input[name="password"]').val();
-    const login = '/Login/validateLogin';
-    const url = Diretorio() + login;
+    const url = Diretorio() + '/Login/validateLogin';
     const gen = $('#sexo');
     let form = $('form').serializeArray();
 
-
-    if (validaFormVazio(form, gen)) {
+    if (validaFormVazio(form, true, gen)) {
         $.ajax({
             url: url,
             type: 'POST',

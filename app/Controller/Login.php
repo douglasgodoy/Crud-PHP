@@ -9,7 +9,7 @@ class Login extends Sql
 {
     public function __construct()
     {
-        \session_start();
+        session_start();
         parent::__construct();
     }
     public function login()
@@ -27,12 +27,12 @@ class Login extends Sql
                 ':PASSWORD' => $_POST['pass']
             ]
         );
-        $this->pegaDadosSessao(
-            $valida[0]['idusuario'],
-            $valida[0]['imgGithub'],
-            $valida[0]['nomeGit']
-        );
         if (count($valida)) {
+            $this->pegaDadosSessao(
+                $valida[0]['idusuario'],
+                $valida[0]['imgGithub'],
+                $valida[0]['nomeGit']
+            );
             $response = [
                 'erro' => false,
                 'message' => 'Parabéns!',
@@ -51,5 +51,10 @@ class Login extends Sql
         $_SESSION['id'] = $id;
         $_SESSION['urlImg'] = $img;
         $_SESSION['nomeGit'] = $nome;
+    }
+
+    public function logoff()
+    {
+        session_destroy();
     }
 }

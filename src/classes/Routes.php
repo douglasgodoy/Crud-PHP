@@ -8,7 +8,7 @@ class Routes
 {
     private $controlador;
     private $metodo;
-    private $args;
+    public $args;
     public function __construct()
     {
         $this->url = explode('/', rtrim($_GET['url']), FILTER_SANITIZE_URL);
@@ -24,7 +24,8 @@ class Routes
             "" => "login",
             "login" => "login",
             "home" => "index",
-            "index" => "index"
+            "index" => "index",
+            "Projetos" => 'Projetos'
         ];
         array_key_exists($nameRoute, $this->rota) &&
             file_exists('../app/View/' . $this->rota[$nameRoute] . '.phtml') ?
@@ -47,6 +48,7 @@ class Routes
 
     public function req() // Função para fazer requisições, tanto ajax quanto POST
     {
+
         $this->controller = 'Controller\\' . \ucfirst($this->controlador);
         if (!class_exists($this->controller)) {
             $this->getView();
@@ -56,5 +58,10 @@ class Routes
             $response = call_user_func_array([new $this->controller(), $this->metodo], [$this->args]);
             print $response;
         };
+    }
+    public function getArgs()
+    {
+        \var_dump($this->args);
+        return $this->args;
     }
 }

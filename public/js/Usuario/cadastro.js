@@ -10,7 +10,7 @@ btnCad.on('click', function (e) {
     const gen = $('#sexo');
     const url = Diretorio() + '/Cadastro/cadastrarUsuario';
 
-    if (validaFormVazio(form, gen)) {
+    if (validaFormVazio(form, true, gen)) {
         $.ajax({
             url: url,
             type: 'POST',

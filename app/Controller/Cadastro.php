@@ -13,7 +13,7 @@ class Cadastro extends Sql
 
     public function cadastrarUsuario()
     {
-        $github = $_POST['githubUsername'];
+        $github = filter_input(INPUT_POST, 'githubUsername', FILTER_SANITIZE_STRING);
         $url = "https://api.github.com/users/$github";
         $verificar = $this->verificaUsuarioExiste();
 
@@ -28,7 +28,7 @@ class Cadastro extends Sql
             $this->valCadSql($data)
         );
         $response = $this->tratarMensagemRetorno($cadastrar);
-        echo \json_encode($response);
+        echo json_encode($response);
     }
 
     private function tratarMensagemRetorno(int $insert)

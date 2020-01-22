@@ -19,5 +19,18 @@ DELETE FROM dados_usu WHERE sexo ='M';
 SELECT * FROM dados_usu;
 SELECT * FROM dados_usu WHERE idusuario = 1;
 
-
+INSERT INTO projetos (
+	idusuario,
+	titulo,
+	techs,
+	descricao,
+	urlImgs
+) VALUES (
+	'88',
+	'titulobanco',
+	'js,react',
+	'descbanco',
+	'asdsadasdsa'
+);
+                select * from projetos;
 INSERT INTO dados_usu (emailusuario, senhausuario, dtNascimento, sexo, github) VALUES ('emailbanco','123456','02-10-1998','M','aaaa');

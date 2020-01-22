@@ -10,22 +10,22 @@
     <link href="https://fonts.googleapis.com/css?family=Baskervville|Caveat|Fredoka+One|Inconsolata|Lobster|Montserrat|Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= DIRCSS ?>global.css">
     <link rel="stylesheet" href="<?= DIRCSS ?>jquery-confirm.css">
-    <script src="https://kit.fontawesome.com/17ceb97096.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="<?= DIRCSS ?>all.min.css">
+    <script src="<?= DIRJS ?>all.min.js"></script>
 
 <body>
-    <div id="inicio" style="height:100%">
+    <div id="inicio" style="max-height:100vh">
         <header class="bg-dark text-light p-3 d-flex align-items-center d-flex justify-content-between" id="cabecalho" style="height:14vh;">
             <h3>Bem Vindo!</h3>
             <?php if (isset($_SESSION['id']) && $_SESSION['id'] !== null) { ?>
-                <div class="logoff col-3 d-flex justify-content-around p-0 align-items-center">
+                <div class="logoff col-3 d-flex justify-content-end p-0 align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="dropdown">
                             <button class="mx-3 my-0 btn btn-dark dropdown-toggle" type="button" id="nome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?= $_SESSION['nomeGit'] ?? null ?>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="nome">
-                                <a class="dropdown-item" href="#">Sair</a>
+                                <button id="logoff" class="dropdown-item">Sair</button>
                             </div>
                         </div>
                         <img src=" <?= $_SESSION['urlImg'] ?? null ?>" class="img-fluid border-radius-30" style="width: 65px" alt="Minha Foto do Git">
@@ -33,4 +33,4 @@
                 </div>
             <?php } ?>
         </header>
-        <div class="corpo">
+        <div class="corpo align-items-center">

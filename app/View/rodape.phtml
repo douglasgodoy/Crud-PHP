@@ -17,7 +17,11 @@
         <?php } ?>
 
         <?php if ($_SERVER['pagina'] === 'index') { ?>
-            <script src="<?= DIRJS ?>index.js""></script>
+            <script src="<?= DIRJS ?>/Projetos/index.js"></script>
+        <?php } ?>
+
+        <?php if ($_SERVER['pagina'] === 'Projetos') { ?>
+            <script src="<?= DIRJS ?>Projetos/cadastrar.js"></script>
         <?php } ?>
 
         </div>

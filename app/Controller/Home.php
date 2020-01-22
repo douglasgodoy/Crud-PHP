@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-\session_start();
+session_start();
 
 use Src\Classes\Routes;
 // use Config\Sql;
@@ -27,11 +27,6 @@ class Home //extends Sql
             $_SESSION['urlImg'],
             $_SESSION['nomeGit']
         );
-
-        $dados = [
-            "img" => $this->img,
-            "nome" => $this->nome
-        ];
     }
     public function dadosUsu()
     {

@@ -21,9 +21,11 @@ class Controller //extends Routes
                 "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36
                 (KHTML, like Gecko) Chrome/47.0.2526.111 YaBrowser/16.3.0.7146 Yowser/2.5 Safari/537.36"
             ],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
         ]);
-        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        // \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        // \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         $response = curl_exec($ch);
         curl_close($ch);
 

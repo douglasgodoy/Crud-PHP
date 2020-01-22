@@ -26,6 +26,14 @@ html {
     background-color: rgba(0, 0, 0, 0);
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.bg-cinza-claro {
+    background: rgb(230, 230, 230);
+}
+
 .tagA:hover {
     text-decoration: underline;
 }
@@ -80,4 +88,21 @@ html {
 
 #sair {
     height: 2.2rem;
+}
+
+.bg-header {
+    background: rgba(0, 252, 157, 0.7);
+}
+
+.border-radius-top-30 {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.bg-dark-crud {
+    background: rgba(0, 15, 14, 0.67);
+}
+
+.border-verde {
+    border-color: rgba(0, 252, 157, 0.7);
 }
