@@ -2,7 +2,7 @@ function Diretorio() {
     return $('footer').data("dir");
 }
 
-function dispararAlerta(titulo = '..', conteudo = '..', cor = 'dark', column = 'small') {
+function dispararAlerta(titulo = 'Boa!', conteudo = 'Estamos processando seus dados, um momento...', cor = 'green', column = 'small') {
     $.confirm({
         // animation: 'scaleY',
         // closeAnimation: 'zoom',
@@ -30,6 +30,7 @@ function validaFormVazio(form, temSelect = false, select) {
                 (
                     select.addClass('is-invalid'),
                     select.removeClass('is-valid'),
+
                     erros++
                 ) : (
                     select.removeClass('is-invalid'),
@@ -52,18 +53,16 @@ function validaFormVazio(form, temSelect = false, select) {
                 input.addClass('is-valid');
         }
     });
+    $('form *').hasClass('is-invalid') ?
+        $('.dadosInc').removeClass('d-none') :
+        $('.dadosInc').addClass('d-none');
     return erros > 0 ? false : true;
 }
+
 $('#logoff').on('click', function () {
     $.ajax({
         url: Diretorio() + '/Login/logoff',
         type: 'POST',
-        beforeSend: function () {
-        }
-    }).done(function (data) {
-        setTimeout(() => { window.location = '/crud'; }, 300);
-    }).fail(function () {
-        console.log('algo deu errado, tente novamente!');
-    }).always(function () {
-    });
+    }).done(() => setTimeout(() => { window.location = '/crud'; }, 300))
+        .fail(() => console.log('algo deu errado, tente novamente!'));
 });

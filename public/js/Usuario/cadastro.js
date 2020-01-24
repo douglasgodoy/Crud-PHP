@@ -1,5 +1,5 @@
 
-btnCad.on('click', function (e) {
+$(document).on('click', '#btnCadastrar', function (e) {
     e.preventDefault();
     const email = $('input[name="email"]').val();
     const senha = $('input[name="password"]').val();
@@ -10,62 +10,40 @@ btnCad.on('click', function (e) {
     const gen = $('#sexo');
     const url = Diretorio() + '/Cadastro/cadastrarUsuario';
 
-    if (validaFormVazio(form, true, gen)) {
-        $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                email: email,
-                password: senha,
-                dtNasc: dtNasc,
-                sexo: genero,
-                githubUsername: github
-            },
-            beforeSend: function () {
-                $('.spinner').removeClass('d-none');
-            }
-        }).done(function (data) {
-            $('.spinner').addClass('d-none');
-            const dados = data.dadosGit;
-            const isset = (dados !== null && dados !== undefined) && dados.length > 0;
+    if (!validaFormVazio(form, true, gen)) return false;
 
-            if (!data.erro) {
-                const htmlCadSucess = `
-                    <div class="d-flex justify-content-between">
-                        <p>Cadastro realizado com Sucesso${isset ? ',' : ''}
-                            <strong class="d-block">${isset ? data.dadosGit[0] : ''}!</strong>
-                        </p >
-                        <img
-                            class="border-radius-50"
-                            src="${isset ? data.dadosGit[1] : ''}"
-                            style="max-width: 72px; max-height:72px"
-                        />
-                    </div>
-                `;
+    $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: 'JSON',
+        data: {
+            email: email,
+            password: senha,
+            dtNasc: dtNasc,
+            sexo: genero,
+            githubUsername: github
+        },
+        beforeSend: function () {
+            $('.spinner').removeClass('d-none');
+        }
+    }).done(function (data) {
+        $('.spinner').addClass('d-none');
 
-                dispararAlerta(
-                    "Boa!",
-                    htmlCadSucess,
-                    'green',
-                    'col-md-6 col-md-offset-3'
-                );
-
-                $('#novoCadastro').trigger('click');
-                setTimeout(() => { window.location = 'home'; }, 1500);
-            } else {
-                dispararAlerta(
-                    `Ops..`,
-                    `${data.message}`,
-                    'red', 'col-md-6 col-md-offset-3'
-                );
-                $('#novoCadastro').trigger('click')
-            }
-        }).fail(function (error) {
-            $('.spinner').addClass('d-none');
-            console.log(error);
-        });
-    };
+        if (!data.erro) {
+            $('#novoCadastro').trigger('click');
+            $('#login').trigger('click');
+        } else {
+            dispararAlerta(
+                `Ops..`,
+                `${data.message}`,
+                'red', 'col-md-6 col-md-offset-3'
+            );
+            $('#novoCadastro').trigger('click');
+        }
+    }).fail(function (error) {
+        $('.spinner').addClass('d-none');
+        console.log(error);
+    });
 
     $('form *').hasClass('is-invalid') ?
         $('.dadosInc').removeClass('d-none') :

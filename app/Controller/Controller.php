@@ -32,11 +32,11 @@ class Controller //extends Routes
         $array = \json_decode($response, true);
 
         $filter = [
-            'imageUrl' => $array['avatar_url'],
-            'nome' => $array['name'],
-            'bio' => $array['bio'],
-            'empresaAtual' => $array['company'],
-            'localizacao' => $array['location']
+            'imageUrl' => $array['avatar_url'] ?? null,
+            'nome' => $array['name'] ?? null,
+            'bio' => $array['bio'] ?? null,
+            'empresaAtual' => $array['company'] ?? null,
+            'localizacao' => $array['location'] ?? null
         ];
         return $filter;
     }

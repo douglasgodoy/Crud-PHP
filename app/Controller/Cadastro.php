@@ -62,17 +62,20 @@ class Cadastro extends Sql
         return $filter;
     }
 
+
     public function verificaUsuarioExiste()
     {
         $comando = $this->command('SELECT emailusuario FROM dados_usu WHERE emailusuario = :EMAIL', [
             ':EMAIL' => $_POST['email']
         ]);
+        $github = $_POST['githubUsername'];
+        if (strlen($github)) {
+            $comandoGit = $this->command('SELECT github FROM dados_usu WHERE github = :github', [
+                ':github' => $_POST['githubUsername']
+            ]);
+        }
 
-        $comandoGit = $this->command('SELECT github FROM dados_usu WHERE github = :github', [
-            ':github' => $_POST['githubUsername']
-        ]);
-
-        if (count($comando) || count($comandoGit)) {
+        if (count($comando) || (isset($comandoGit) && count($comandoGit))) {
             $response = [
                 'erro' => true,
                 'message' => 'E-mail e/ou Git já possui cadastro em nossa base!',

@@ -21,14 +21,14 @@ class Login extends Sql
     public function validateLogin()
     {
         $valida = $this->command(
-            "SELECT * FROM dados_usu WHERE emailusuario = :EMAIL AND senhausuario = :PASSWORD",
+            "SELECT * FROM dados_usu WHERE github = :EMAIL AND senhausuario = :PASSWORD",
             [
-                ':EMAIL' => $_POST['email'],
+                ':EMAIL' => $_POST['github'],
                 ':PASSWORD' => $_POST['pass']
             ]
         );
         if (count($valida)) {
-            $this->pegaDadosSessao(
+            $this->setDadosSessao(
                 $valida[0]['idusuario'],
                 $valida[0]['imgGithub'],
                 $valida[0]['nomeGit']
@@ -46,7 +46,7 @@ class Login extends Sql
         echo json_encode($response);
     }
 
-    public function pegaDadosSessao($id, $img, $nome)
+    public function setDadosSessao($id, $img, $nome)
     {
         $_SESSION['id'] = $id;
         $_SESSION['urlImg'] = $img;

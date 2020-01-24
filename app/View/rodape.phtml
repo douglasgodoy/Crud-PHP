@@ -16,13 +16,16 @@
             <script src="<?= DIRJS ?>Usuario/recuperarSenha.js"></script>
         <?php } ?>
 
-        <?php if ($_SERVER['pagina'] === 'index') { ?>
-            <script src="<?= DIRJS ?>/Projetos/index.js"></script>
-        <?php } ?>
-
         <?php if ($_SERVER['pagina'] === 'Projetos') { ?>
             <script src="<?= DIRJS ?>Projetos/cadastrar.js"></script>
+            <script src="<?= DIRJS ?>Projetos/editar.js"></script>
+
         <?php } ?>
+        <?php if ($_SERVER['pagina'] === 'index') { ?>
+            <script src="<?= DIRJS ?>/Projetos/index.js"></script>
+            <script src="<?= DIRJS ?>Projetos/deletar.js"></script>
+        <?php } ?>
+
 
         </div>
         </body>

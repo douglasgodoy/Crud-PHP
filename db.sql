@@ -13,7 +13,7 @@ CREATE TABLE `dados_usu` (
 UPDATE dados_usu SET dtNascimento = '1998-10-02' WHERE idusuario = 1;
 
 
-DELETE FROM dados_usu WHERE sexo ='M';
+DELETE FROM dados_usu WHERE github ='bassalobre';
 
 
 SELECT * FROM dados_usu;
@@ -32,5 +32,6 @@ INSERT INTO projetos (
 	'descbanco',
 	'asdsadasdsa'
 );
-                select * from projetos;
+SELECT * FROM projetos;
+DELETE FROM projetos WHERE idusuario = '88';
 INSERT INTO dados_usu (emailusuario, senhausuario, dtNascimento, sexo, github) VALUES ('emailbanco','123456','02-10-1998','M','aaaa');

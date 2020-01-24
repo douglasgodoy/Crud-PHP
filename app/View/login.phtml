@@ -3,9 +3,10 @@
         <p id="titulo">Faça o <span>login</span> para continuar!</p>
         <form class="needs-validation">
             <div class="form-group">
+
                 <div class="my-3 text-secondary">
-                    <label for="usuario">E-mail</label>
-                    <input id="usuario" type="text" name="email" placeholder="seuemailaqui@exemplo.com.br" class="form-control" required>
+                    <label for="github">Seu nome do Git!</label>
+                    <input id="github" type="text" name="githubUsername" placeholder="coloque seu nome do Github!" class="form-control" autocomplete="off" required>
                 </div>
                 <div class="my-3 text-secondary">
                     <label for="senha">Senha</label>
@@ -16,6 +17,10 @@
                         <label for="senhaConf">Confirme sua Senha</label>
                         <input id="senhaConf" name="senhaConf" type="password" placeholder="Digite sua senha aqui" class="form-control" autocomplete="off">
                         <span class="text-danger font-size-13 d-none font-weight-bold">*As senhas devem ser iguais!</span>
+                    </div>
+                    <div class="my-3 text-secondary">
+                        <label for="usuario">E-mail</label>
+                        <input id="usuario" type="text" name="email" placeholder="seuemailaqui@exemplo.com.br" class="form-control">
                     </div>
                     <div class="d-flex justify-content-between my-3 text-secondary">
                         <div class="idade col pr-2 pl-0">
@@ -31,23 +36,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="my-3 text-secondary">
-                        <label for="github">Seu nome do Git!</label>
-                        <input id="github" type="text" name="githubUsername" placeholder="coloque seu nome do Github!" class="form-control" autocomplete="off">
-                    </div>
+
                 </div>
             </div>
-            <div class="my-2 mx-auto">
-                <button type="submit" id="login" class="btn btn-outline-dark">Entrar
-                    <div class="spinner-grow spinner-grow-sm d-none spinner" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </button>
-                <button type="submit" id="btnCadastrar" class="btn btn-outline-dark d-none">Cadastrar
-                    <div class="spinner-grow spinner-grow-sm d-none spinner" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </button>
+            <div class="my-2 mx-auto" id="divBotoes">
                 <span id="esqueceuSenha" class="font-size-13 mx-2 tagA">Esqueceu a senha?</span>
                 <div class="font-size-13 text-danger font-weight-bold my-1 d-none dadosInc">*Existem Dados que não foram preenchidos!</div>
             </div>

@@ -114,7 +114,7 @@ class Projetos extends Sql
         if ($insert > 0) {
             return [
                 'erro' => false,
-                'message' => 'Projeto ' . $this->getTitulo() . "$tipo com Sucesso!",
+                'message' => 'Projeto ' . $this->getTitulo() . " $tipo com Sucesso!",
             ];
         }
         return [
